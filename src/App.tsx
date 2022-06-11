@@ -2,17 +2,22 @@ import React from 'react';
 import './App.css';
 import BoardComponent from './components/Board';
 import {Card, CardContent} from "@mui/material";
+import styled from "@emotion/styled";
 
-function App() {
-
-  return (
-    <Card style={{margin: 'auto', width: '30%', height: 'fit-content', backgroundColor: '#EEE', border: 'solid 0.3rem #AAA'}}>
+const App = ()  =>  (
+    <CARD style={{}}>
       <CardContent>
-        <h3>Miroculus - Board B</h3>
+        <h3>Bit Board B</h3>
         <BoardComponent numberOfRows={7} numberOfColumns={24}/>
       </CardContent>
-    </Card>
+    </CARD>
   );
-}
+
+const CARD = styled(Card)` 
+  margin: auto; 
+  width: 90%;
+  height: fit-content;
+  background-color: #EEE;
+  border: solid 0.3rem #AAA;`;
 
 export default App;

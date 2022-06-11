@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react";
+import BitComponent, {ToggleBitType} from "./Bit";
 
 interface BoardComponentType {
   numberOfRows: number;
-
   numberOfColumns: number;
 }
 
@@ -19,39 +19,21 @@ const BoardComponent = ({numberOfRows, numberOfColumns}: BoardComponentType) => 
       ({columns: [...Array(numberOfColumns).keys()].map(i => false)}));
     setRows(rows);
   }, [numberOfRows, numberOfColumns]);
-  const toggleBit = (row: number, column: number) => {
+  const toggleBit = ({row, col}:ToggleBitType) => {
     const _rows = rows.map((r, rKey) => {
       if (rKey === row) {
-        r.columns[column]=!  r.columns[column];
+        r.columns[col]=!  r.columns[col];
       }
       return r;
     });
     setRows(_rows);
   }
   return (
-    <svg viewBox=" -20 -20 600 337" width="100%" height="100%">
+    <svg viewBox=" -20 -20 800 500" width="100%" height="100%">
       {rows.map((row, rowKey) =>
         (<text x="2" y="1.25em" key={rowKey}>
-          {row.columns.map((col, colKey) => {
-           if( col) {
-             return <tspan
-               x={colKey * 25}
-               y={rowKey * 50}
-               fill='coral'
-               key={`${rowKey}-${colKey}`}
-               onClick={(event) => {
-                 toggleBit(rowKey, colKey);
-               }}>o</tspan>
-           }
-           else{ return <tspan
-             x={colKey * 25}
-             y={rowKey * 50}
-             fill='blue'
-             key={`${rowKey}-${colKey}`}
-             onClick={(event) => {
-               toggleBit(rowKey, colKey);
-             }}>-</tspan>}
-          }
+          {row.columns.map((col, colKey) =>
+              (<BitComponent bitStatus={col} colKey={colKey} rowKey={rowKey} toggleBit={toggleBit}/>)
             )}
         </text>)
       )}
