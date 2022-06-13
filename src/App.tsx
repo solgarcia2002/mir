@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import BoardContainer from './containers/Board';
+import {Card, CardContent} from "@mui/material";
+import styled from "@emotion/styled";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+const App = ()  =>  (
+    <CARD style={{}}>
+      <CardContent>
+        <h3>Bit Board B</h3>
+        <BoardContainer numberOfRows={7} numberOfColumns={24}/>
+      </CardContent>
+    </CARD>
   );
-}
+
+const CARD = styled(Card)` 
+  margin: auto; 
+  width: 90%;
+  height: fit-content;
+  background-color: #EEE;
+  border: solid 0.3rem #AAA;`;
 
 export default App;
