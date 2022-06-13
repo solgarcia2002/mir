@@ -23,7 +23,6 @@ const BitComponent = ({bitStatus, colKey, rowKey, toggleBit}: BitType) => {
     x={colKey * 30}
     y={rowKey * 50}
     fill={bitState ? 'coral' : 'teal'}
-    key={`${rowKey}-${colKey}`}
     onClick={(event) => {
       toggleBit({row:rowKey, col:colKey});
     }}>{bitState ? 'o' : '-'}</TSPAN>);

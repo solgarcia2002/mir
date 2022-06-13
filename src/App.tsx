@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import BoardComponent from './components/Board';
+import BoardContainer from './containers/Board';
 import {Card, CardContent} from "@mui/material";
 import styled from "@emotion/styled";
 
@@ -8,7 +8,7 @@ const App = ()  =>  (
     <CARD style={{}}>
       <CardContent>
         <h3>Bit Board B</h3>
-        <BoardComponent numberOfRows={7} numberOfColumns={24}/>
+        <BoardContainer numberOfRows={7} numberOfColumns={24}/>
       </CardContent>
     </CARD>
   );
