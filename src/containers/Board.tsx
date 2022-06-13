@@ -38,6 +38,10 @@ const BoardContainer = ({numberOfRows, numberOfColumns}: BoardComponentType) => 
     fetchData();
   }, [])
   const setBoardWithData = ({data, numberOfRows, numberOfColumns}: PopulateBoardType) => {
+
+    //Creating an array of columns based on numberOfRows,
+    //each column is created in base of numberOfColumns formatting an array of boolean (false by default)
+    //If data will be populated with it
     const clustersSaved = data?.Clusters.flatMap((d: any[]) => d);
     const _rows = [...Array(numberOfRows).keys()].map(r =>
       ({
@@ -49,9 +53,6 @@ const BoardContainer = ({numberOfRows, numberOfColumns}: BoardComponentType) => 
     return _rows;
   }
   useEffect(() => {
-    //Creating an array of columns based on numberOfRows,
-    //each column is created in base of numberOfColumns formatting an array of boolean (false by default)
-
     setRows(setBoardWithData({data, numberOfRows, numberOfColumns}));
   }, [numberOfRows, numberOfColumns, data]);
 
@@ -117,7 +118,6 @@ const BoardContainer = ({numberOfRows, numberOfColumns}: BoardComponentType) => 
           Some error occurs when Fetching data
         </Alert>
       </Snackbar>
-
     </div>
   )
 }
