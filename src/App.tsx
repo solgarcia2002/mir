@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import BoardContainer from './containers/Board';
 import {Card, CardContent} from "@mui/material";
 import styled from "@emotion/styled";
