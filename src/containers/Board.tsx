@@ -89,7 +89,6 @@ const BoardContainer = ({numberOfRows, numberOfColumns}: BoardComponentType) => 
   }
 
   const handleResetRows = () => {
-
     setRows(setBoardWithData({data, numberOfRows, numberOfColumns}));
   }
 
